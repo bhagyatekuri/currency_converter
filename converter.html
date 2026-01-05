@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Real-time currency converter with live exchange rates">
+    <meta name="keywords" content="currency converter, exchange rates, forex">
+    <meta name="author" content="Currency Converter App">
+    <title>Currency Converter - Real-time Exchange Rates</title>
+
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="converter.css">
+</head>
+
+<body>
+    <!-- Main Container -->
+    <div class="converter-container">
+        <div class="converter-card">
+            <!-- Title -->
+            <h1 class="converter-title">Currency Converter</h1>
+
+            <!-- Divider -->
+            <hr class="title-divider">
+
+            <!-- Amount Input Section -->
+            <div class="mb-4">
+                <label for="amount" class="form-label">Amount</label>
+                <input type="text" id="amount" class="form-control amount-input" placeholder="0.00" inputmode="decimal"
+                    autocomplete="off" aria-label="Amount to convert" aria-describedby="amount-help">
+            </div>
+
+            <!-- Currency Selection Section -->
+            <div class="row mb-4">
+                <!-- From Currency -->
+                <div class="col-md-6 mb-3 mb-md-0">
+                    <label for="fromCurrency" class="form-label">From</label>
+                    <select id="fromCurrency" class="form-select currency-select" aria-label="Source currency">
+                        <option value="" selected disabled>Source Currency</option>
+                    </select>
+                </div>
+
+                <!-- To Currency -->
+                <div class="col-md-6">
+                    <label for="toCurrency" class="form-label">To</label>
+                    <select id="toCurrency" class="form-select currency-select" aria-label="Target currency">
+                        <option value="" selected disabled>Target Currency</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- Convert Button -->
+            <button id="convertBtn" class="btn btn-convert mb-4" aria-label="Convert currency" type="button">
+                <span id="btnText">Convert</span>
+                <div id="btnLoader" class="spinner d-none" role="status" aria-live="polite">
+                    <span class="visually-hidden">Loading...</span>
+                </div>
+            </button>
+
+            <!-- Error Message -->
+            <div id="errorMessage" class="alert alert-danger alert-custom d-none" role="alert" aria-live="assertive">
+            </div>
+
+            <!-- Result Display Section -->
+            <div class="result-box">
+                <div id="resultAmount" class="result-amount" aria-live="polite">--</div>
+                <p class="result-label">Selected Currencies</p>
+                <p id="exchangeRate" class="exchange-rate-text" aria-live="polite">
+                    Exchange Rate: 1 [SOURCE] = [RATE] [TARGET]
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+        crossorigin="anonymous"></script>
+
+    <!-- Custom JavaScript -->
+    <script src="converter.js"></script>
+</body>
+
+</html>
